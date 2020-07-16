@@ -1,0 +1,26 @@
+plugins {
+    id 'org.jetbrains.kotlin.js' version '1.3.72'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-js"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-js"
+}
+
+kotlin.target.browser {
+}
+
+task buildWorker {
+  dependsOn browserProductionWebpack
+  doLast {
+      /* Kotlin js output assumes window exists, which it won't on Workers. Hack around it */
+      (new File("$projectDir/index.js")).text = "const window=this; " + file("$projectDir/build/distributions/${rootProject.name}.js").getText()
+  }
+}
