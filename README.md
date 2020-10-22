@@ -25,4 +25,4 @@ cd projectname
 
 That will compile your code and package it into index.js, after which you can run `wrangler publish` to push it to Cloudflare.
 
-For more information on interop between Kotlin and Javascript, see the [Kotlin docs](https://kotlinlang.org/docs/reference/js-interop.html).  Regarding coroutines, see [this issue with workaround](https://github.com/cloudflare/kotlin-worker-hello-world/issues/2)
+For more information on interop between Kotlin and Javascript, see the [Kotlin docs](https://kotlinlang.org/docs/reference/js-interop.html).  Regarding coroutines, see [this issue and workaround](https://github.com/cloudflare/kotlin-worker-hello-world/issues/2)
