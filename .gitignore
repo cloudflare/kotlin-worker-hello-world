@@ -9,3 +9,7 @@ node_modules/
 .cargo-ok
 /index.js
 /build/
+.idea
+.gradle
+.DS_Store
+kotlin-js-store
