@@ -1,6 +1,4 @@
 name = ""
-type = "javascript"
 account_id = ""
 workers_dev = true
-route = ""
-zone_id = ""
+compatibility_date = "2022-08-11"

@@ -1,5 +1,5 @@
 {
-  "name": "{{ project-name }}",
+  "name": "kotlin-worker-hello-world",
   "version": "1.0.0",
   "description": "Kotlin hello world for Cloudflare Workers",
   "main": "index.js",
@@ -7,7 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "{{ authors }}",
-  "license": "MIT",
-  "devDependencies": {
-  }
+  "license": "MIT"
 }
