@@ -3,7 +3,10 @@ import org.w3c.fetch.Response
 import org.w3c.fetch.ResponseInit
 import kotlin.js.Promise
 
-internal fun application(@Suppress("UNUSED_PARAMETER") request: Request) = Promise<Response> { resolve, reject ->
+// Implement your Kotlin application logic here
+internal fun application(
+    @Suppress("UNUSED_PARAMETER") request: Request
+) = Promise<Response> { resolve, reject ->
     runCatching {
         val headers: dynamic = object {}
         headers["content-type"] = "text/plain"

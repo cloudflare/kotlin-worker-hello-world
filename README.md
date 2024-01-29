@@ -1,27 +1,23 @@
 # Kotlin hello world for Cloudflare Workers
 
-Your Kotlin code in [main.kt](https://github.com/cloudflare/kotlin-worker-hello-world/blob/master/src/main/kotlin/main.kt), running on Cloudflare Workers
+Your Kotlin code in [Application.kt](worker-app/src/jsMain/kotlin/Application.kt), running on Cloudflare Workers.
 
-In addition to [Wrangler v2.x](https://github.com/cloudflare/wrangler2) you will need to install Kotlin, including a JDK and support for Gradle projects. The easiest way to do this is using the free Community Edition of [IntelliJ IDEA](https://kotlinlang.org/docs/tutorials/jvm-get-started.html).
+You will need to install Kotlin, including a JDK and support for Gradle projects. The easiest way to do this is using the free Community Edition of [IntelliJ IDEA](https://kotlinlang.org/docs/tutorials/jvm-get-started.html).
 
 ## Wrangler
-
-Configure the [wrangler.toml](wrangler.toml) by filling in the `account_id` from the Workers pages of your Cloudflare Dashboard.
+You will need to install wrangler, e.g. `npm install wrangler`
 
 Further documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
 
 ## Gradle
-
 After setting up Kotlin per the linked instructions above,
 
 ```
-./gradlew :compileProductionExecutableKotlinJs
+./gradlew assemble
 ```
 
-That will compile your code and package it into a JavaScript executable, after which you can run `wrangler publish` to push it to Cloudflare.
+That will compile your code and package it into a JavaScript executable, after which you can run `wrangler dev` to start a localhost server for testing.
 
-```
-wrangler publish build/js/packages/kotlin-worker-hello-world/kotlin/kotlin-worker-hello-world.js
-```
+To publish to Cloudflare, run `wrangler publish`
 
 For more information on interop between Kotlin and Javascript, see the [Kotlin docs](https://kotlinlang.org/docs/reference/js-interop.html).  Regarding coroutines, see [this issue and workaround](https://github.com/cloudflare/kotlin-worker-hello-world/issues/2)

@@ -1,4 +1,2 @@
-name = ""
-account_id = ""
-workers_dev = true
+main = "worker-app/build/dist/js/productionExecutable/entrypoint.js"
 compatibility_date = "2023-12-01"
