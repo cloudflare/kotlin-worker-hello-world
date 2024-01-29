@@ -1,3 +1,5 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
     @Suppress("UnstableApiUsage")
@@ -6,6 +8,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Cloudflare"
+rootProject.name = "cloudflare-kotlin-hello-world"
 
+include("miniflare-lib")
+include("worker-integration-test")
 include("worker-app")

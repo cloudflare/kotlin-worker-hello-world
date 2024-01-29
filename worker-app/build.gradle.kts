@@ -49,3 +49,18 @@ tasks {
         }
     }
 }
+
+// This provides a way for worker-integration-test to wait for worker-app to be built
+configurations.register("workerAppProduction") {
+    isCanBeConsumed = true
+    isCanBeResolved = false
+}.also { configuration ->
+    artifacts {
+        val webpackTask = tasks.getByName("jsBrowserProductionWebpack")
+        webpackTask.outputs.files.forEach { file ->
+            add(configuration.name, file) {
+                builtBy(webpackTask)
+            }
+        }
+    }
+}
