@@ -1,5 +1,7 @@
 [versions]
 kotlin = "1.9.22"
+node = "20.11.0"
+webpack-cli = "5.1.4"
 
 [libraries]
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
