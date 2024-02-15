@@ -15,13 +15,13 @@ Further documentation for Wrangler can be found [here](https://developers.cloudf
 After setting up Kotlin per the linked instructions above,
 
 ```
-./gradlew :compileProductionExecutableKotlinJs
+./gradlew :compileProductionExecutableKotlinWasmJs
 ```
 
 That will compile your code and package it into a JavaScript executable, after which you can run `wrangler publish` to push it to Cloudflare.
 
 ```
-wrangler publish build/js/packages/kotlin-worker-hello-world/kotlin/kotlin-worker-hello-world.js
+wrangler publish build/js/packages/kotlin-worker-hello-world-wasm-js/kotlin/kotlin-worker-hello-world-wasm-js.mjs
 ```
 
 For more information on interop between Kotlin and Javascript, see the [Kotlin docs](https://kotlinlang.org/docs/reference/js-interop.html).  Regarding coroutines, see [this issue and workaround](https://github.com/cloudflare/kotlin-worker-hello-world/issues/2)
