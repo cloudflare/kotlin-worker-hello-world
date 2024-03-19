@@ -18,10 +18,11 @@ After setting up Kotlin per the linked instructions above,
 ./gradlew :compileProductionExecutableKotlinWasmJs
 ```
 
-That will compile your code and package it into a JavaScript executable, after which you can run `wrangler deploy` to push it to Cloudflare.
+That will compile your code and package it into a WebAssembly executable and JavaScript glue code, 
+after which you can run `wrangler deploy` to push it to Cloudflare.
 
 ```
 npx wrangler@latest deploy build/js/packages/kotlin-worker-hello-world-wasm-js/kotlin/kotlin-worker-hello-world-wasm-js.mjs
 ```
 
-For more information on interop between Kotlin and Javascript, see the [Kotlin docs](https://kotlinlang.org/docs/reference/js-interop.html).  Regarding coroutines, see [this issue and workaround](https://github.com/cloudflare/kotlin-worker-hello-world/issues/2)
+For more information on interop between Kotlin and JavaScript, see the [Kotlin docs](https://kotlinlang.org/docs/wasm-js-interop.html).
