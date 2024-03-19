@@ -9,7 +9,7 @@ fun fetch(request: Request) : Response {
     val headers = Headers()
     headers.append("content-type", "text/plain")
     return Response(
-        "Kotlin Worker hello world".toJsString(),
+        "Hello from Kotlin/Wasm Worker".toJsString(),
         ResponseInit(headers = headers)
     )
 }
