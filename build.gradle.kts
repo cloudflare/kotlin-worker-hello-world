@@ -22,6 +22,7 @@ kotlin {
         // Comment the next line to turn off optimization by Binaryen
         applyBinaryen()
 
+        // Workaround for https://youtrack.jetbrains.com/issue/KT-66972
         compilations
             .configureEach {
                 binaries.withType<Executable>().configureEach {
