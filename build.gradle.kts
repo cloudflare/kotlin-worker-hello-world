@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.targets.js.ir.*
 
 plugins {
     kotlin("multiplatform") version "1.9.22"
+    // kotlin("multiplatform") version "2.0.0-RC1"
 }
 
 group = "org.example"
@@ -43,7 +44,7 @@ kotlin {
                                 val file = mjsFile.get().asFile
                                 val text = file.readText()
                                 val newText = text
-                                    .replace("if \\(!isNodeJs && !isStandaloneJsVM && !isBrowser\\) \\{[^\\}]*\\}".toRegex(), "")
+                                    .replace("if \\(!\\w+( && !\\w+)*\\) \\{[^\\}]*\\}".toRegex(), "")
                                     .replace(
                                         "(if \\(isBrowser\\) \\{\\s*wasmInstance[^\\}]*\\})".toRegex(),
                                         """
