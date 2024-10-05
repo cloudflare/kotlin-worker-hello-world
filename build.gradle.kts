@@ -1,18 +1,23 @@
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
+
 plugins {
-    kotlin("js") version "1.7.10"
+    alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin::class.java) {
+    rootProject.the<NodeJsRootExtension>().versions.webpackCli.version = libs.versions.webpack.cli.get()
 }
 
-kotlin {
-    js(IR) {
-        nodejs {
-        }
-        binaries.executable()
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
+    rootProject.the<NodeJsRootExtension>().apply {
+        download = project.property("CLOUDFLARE_IS_INSTALL_NODE").toString().toBoolean()
+        nodeVersion = libs.versions.node.get()
+    }
+}
+
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
+    rootProject.the<YarnRootExtension>().apply {
+        download = project.property("CLOUDFLARE_IS_INSTALL_YARN").toString().toBoolean()
     }
 }
