@@ -1,8 +1,8 @@
 # Kotlin hello world for Cloudflare Workers
 
-Your Kotlin code in [main.kt](https://github.com/cloudflare/kotlin-worker-hello-world/blob/master/src/main/kotlin/main.kt), running on Cloudflare Workers
+Your Kotlin code in [main.kt](src/wasmJsMain/kotlin/main.kt), running on Cloudflare Workers
 
-In addition to [Wrangler v2.x](https://github.com/cloudflare/wrangler2) you will need to install Kotlin, including a JDK and support for Gradle projects. The easiest way to do this is using the free Community Edition of [IntelliJ IDEA](https://kotlinlang.org/docs/tutorials/jvm-get-started.html).
+In addition to [Wrangler v2.x](https://github.com/cloudflare/wrangler2) you will need to install a JDK 8 or newer. [The easiest way to do this](https://www.jetbrains.com/guide/java/tips/download-jdk/) is using the free Community Edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
 
 ## Wrangler
 
@@ -10,18 +10,22 @@ Configure the [wrangler.toml](wrangler.toml) by filling in the `account_id` from
 
 Further documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
 
-## Gradle
+## Build & Deploy
 
-After setting up Kotlin per the linked instructions above,
+After setting up your environment, run the following command:
 
-```
-./gradlew :compileProductionExecutableKotlinJs
-```
-
-That will compile your code and package it into a JavaScript executable, after which you can run `wrangler publish` to push it to Cloudflare.
-
-```
-wrangler publish build/js/packages/kotlin-worker-hello-world/kotlin/kotlin-worker-hello-world.js
+```shell
+./gradlew :compileProductionExecutableKotlinWasmJs
 ```
 
-For more information on interop between Kotlin and Javascript, see the [Kotlin docs](https://kotlinlang.org/docs/reference/js-interop.html).  Regarding coroutines, see [this issue and workaround](https://github.com/cloudflare/kotlin-worker-hello-world/issues/2)
+That will compile your code into a WebAssembly executable and JavaScript glue code, 
+after which you can run `wrangler deploy` to push it to Cloudflare:
+
+```shell
+npx wrangler@latest deploy build/js/packages/kotlin-worker-hello-world-wasm-js/kotlin/kotlin-worker-hello-world.js
+```
+
+## Learn more
+
+* [Kotlin/Wasm Overview](https://kotl.in/wasm/)
+* [Kotlin/Wasm JavaScript interop](https://kotlinlang.org/docs/wasm-js-interop.html).
