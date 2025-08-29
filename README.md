@@ -6,22 +6,18 @@ In addition to [Wrangler v2.x](https://github.com/cloudflare/wrangler2) you will
 
 ## Wrangler
 
-Configure the [wrangler.toml](wrangler.toml) by filling in the `account_id` from the Workers pages of your Cloudflare Dashboard.
+Documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
 
-Further documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
+To test the build locally, run it in dev.
 
-## Gradle
-
-After setting up Kotlin per the linked instructions above,
-
-```
-./gradlew :compileProductionExecutableKotlinJs
+```shell
+wrangler dev
 ```
 
-That will compile your code and package it into a JavaScript executable, after which you can run `wrangler publish` to push it to Cloudflare.
+To deploy the example, use the following command.
 
-```
-wrangler publish build/js/packages/kotlin-worker-hello-world/kotlin/kotlin-worker-hello-world.js
+```shell
+wrangler deploy
 ```
 
-For more information on interop between Kotlin and Javascript, see the [Kotlin docs](https://kotlinlang.org/docs/reference/js-interop.html).  Regarding coroutines, see [this issue and workaround](https://github.com/cloudflare/kotlin-worker-hello-world/issues/2)
+For more information on interop between Kotlin and Javascript, see the [Kotlin docs](https://kotlinlang.org/docs/js-interop.html).  Regarding coroutines, see [this issue and workaround](https://github.com/cloudflare/kotlin-worker-hello-world/issues/2)

@@ -1,4 +1,7 @@
-name = ""
-account_id = ""
+name = "kotlin-worker-hello-world"
 workers_dev = true
-compatibility_date = "2022-08-11"
+compatibility_date = "2025-08-24"
+main = "build/js/packages/kotlin-worker-hello-world/kotlin/kotlin-worker-hello-world.mjs"
+
+[build]
+command = "./gradlew :compileProductionExecutableKotlinJs"
