@@ -1,5 +1,5 @@
 plugins {
-    kotlin("js") version "1.7.10"
+    kotlin("multiplatform") version "2.2.10"
 }
 
 group = "org.example"
